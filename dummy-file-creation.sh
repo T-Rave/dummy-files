@@ -7,7 +7,8 @@ while [[ "$count" -le "$filecount" ]]
 do
 	# create a number between 0-99 to be used in the random file size
 	size=$(( $RANDOM % 100 ))
-	# creates a .txt file starting with foo- with the creation count and creates a random size 
+	# creates a .txt file starting with foo- with the creation count and creates a random size
+	## bs size must be capital on Linux and lowercase on MacOS 
 	dd if=/dev/urandom of=foo-$count.txt bs="$size"m count=1
 	((count++))
 done
